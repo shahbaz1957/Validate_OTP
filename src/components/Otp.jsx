@@ -4,6 +4,7 @@ const OtpCount = 5;
 
 function Otp() {
   const [inputArr, setInputArr] = useState(new Array(OtpCount).fill(""));
+  const refArr = useRef([]);
 
   useEffect(() => {
     refArr.current[0]?.focus();
@@ -18,10 +19,9 @@ function Otp() {
 
     newValue && refArr.current[index+1]?.focus();
   };
-  const refArr = useRef([]);
 
   const handleOnKeyDown = (e,index)=>{
-    console.log(e)
+    // console.log(e)
     if(e.key === "Backspace" && inputArr[index] === ""){
         refArr.current[index - 1]?.focus();
     }
